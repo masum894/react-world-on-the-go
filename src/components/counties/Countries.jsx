@@ -12,11 +12,14 @@ const Countries = ({ promiseOfCountries }) => {
 
     const [countryName, setCountryName] = useState([]);
     const handleCountryName = (countryInfo) => {
-        console.log("Country Name Called", countryInfo.name.common);
+        // console.log("Country Name Called", countryInfo.name.common);
         const nameOfCountry = [...countryName, countryInfo]
         
+        const isExist = countryName.find(c => c.ccn3.ccn3 === countryInfo.ccn3.ccn3);
 
-        setCountryName(nameOfCountry);
+        const remaining = countryName.filter(c => c.ccn3.ccn3 !== countryInfo.ccn3.ccn3);
+
+       isExist? setCountryName(remaining):setCountryName(nameOfCountry);
 
     }
 
@@ -25,7 +28,7 @@ const Countries = ({ promiseOfCountries }) => {
             <h2>In the countries : {allCountriesData.length}</h2>
 
             <h4>Visited Country: <ol>
-                {countryName.map(everyCountry=> <li>{everyCountry.name.common}</li>)}
+                {countryName.map(everyCountry=> <li key={everyCountry.ccn3.ccn3}  >{everyCountry.name.common}</li>)}
                 </ol> </h4>
 
             <div className='main-box'>
