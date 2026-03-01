@@ -1,0 +1,11 @@
+.country-box{
+  border: 1px solid blue;
+  border-radius: 3px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.visited-btn-style{
+  background-color: blueviolet;
+  color: wheat;
+}
